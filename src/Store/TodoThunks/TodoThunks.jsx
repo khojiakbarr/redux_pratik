@@ -38,7 +38,9 @@ const updateTodo = createAsyncThunk(
   "todo/updateTodo", // Action type
   async (data, thunkApi) => {
     try {
-      const response = await axios.put(URL + data.id, data.newTask);
+      const response = await axios.put(`${URL + data.id}/`, {
+        task: data.newTask,
+      });
       thunkApi.dispatch(getTodos());
       return response.data;
     } catch (err) {
@@ -47,4 +49,4 @@ const updateTodo = createAsyncThunk(
   }
 );
 
-export { getTodos, postTodos, deleteTodo };
+export { getTodos, postTodos, deleteTodo, updateTodo };

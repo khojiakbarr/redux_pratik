@@ -15,7 +15,7 @@ export default function TodoList() {
   }, []);
   return (
     <div className="mt-[30px] flex justify-center flex-wrap gap-[15px]">
-      {loading == "pending" && <h2>Loading...</h2>}
+      {loading === "pending" && <h2>Loading...</h2>}
       {error && <h2>Error: {error} </h2>}
       {todos &&
         todos.map((todo) => (
